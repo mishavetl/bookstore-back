@@ -10,8 +10,6 @@ Doorkeeper.configure do
     #   User.find_by_id(session[:user_id]) || redirect_to(new_user_session_url)
   end
 
-  api_only
-
   # If you want to restrict access to the web interface for adding oauth authorized applications, you need to declare the block below.
   # admin_authenticator do
   #   # Put your admin authentication logic here.
@@ -20,11 +18,11 @@ Doorkeeper.configure do
   # end
 
   # Authorization Code expiration time (default 10 minutes).
-  # authorization_code_expires_in 10.minutes
+  authorization_code_expires_in 10.minutes
 
   # Access token expiration time (default 2 hours).
   # If you want to disable expiration, set this to nil.
-  # access_token_expires_in 2.hours
+  access_token_expires_in 2.hours
 
   # Assign a custom TTL for implicit grants.
   # custom_access_token_expires_in do |oauth_client|
@@ -38,7 +36,7 @@ Doorkeeper.configure do
   # The controller Doorkeeper::ApplicationController inherits from.
   # Defaults to ActionController::Base.
   # https://github.com/doorkeeper-gem/doorkeeper#custom-base-controller
-  # base_controller 'ApplicationController'
+  base_controller 'ApplicationController'
 
   # Reuse access token for the same resource owner within an application (disabled by default)
   # Rationale: https://github.com/doorkeeper-gem/doorkeeper/issues/383
