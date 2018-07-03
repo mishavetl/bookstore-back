@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'user/login'
-  get 'user/register'
-  use_doorkeeper
+  default_url_options :host => "localhost"
+  devise_for :users, controllers: {
+      registrations: 'registrations'}
 end
