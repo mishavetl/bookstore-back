@@ -10,6 +10,6 @@ class User < ApplicationRecord
   validates_uniqueness_of :email
 
   def confirmation_required?
-    !confirmed?
+    false && !confirmed?
   end
 end
