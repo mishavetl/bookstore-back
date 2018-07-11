@@ -26,3 +26,6 @@
 
 # Ignore .env
 /.env
+
+# Public images
+/public/img

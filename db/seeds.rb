@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+photos = Dir.children __dir__ + '/../public/img/'
+
+photos.each do |photo|
+  Book.create(title: Faker::Book.title, photo: photo, price: Faker::Number.decimal(2, 2))
+end
