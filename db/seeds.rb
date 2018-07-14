@@ -6,8 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-photos = Dir.children __dir__ + '/../public/img/'
+Category.delete_all
+Book.delete_all
 
+category_titles = [
+  {en: 'Sci-fi', ru: 'Научно-популярное'},
+  {en: 'Sci-fi', ru: 'Научно-популярное'},
+]
+
+categories = category_titles.map do |title|
+  Category.create(title_en: title[:en], title_ru: title[:ru])
+end
+
+photos = Dir.children __dir__ + '/../public/img/'
 photos.each do |photo|
-  Book.create(title: Faker::Book.title, photo: photo, price: Faker::Number.decimal(2, 2))
+  category = categories.sample
+  price = Faker::Number.decimal 2, 2
+  category.books.create(title: Faker::Book.title, photo: photo, price: price)
 end

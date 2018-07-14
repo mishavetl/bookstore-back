@@ -52,3 +52,4 @@ gem 'rack-cors', require: 'rack/cors'
 
 gem 'rails-i18n'
 gem 'faker'
+gem 'mobility'
